@@ -108,7 +108,10 @@ public class MenuLooper implements Runnable {
      */
     public static class Scanner {
         private static final Pattern booleanPattern = Pattern.compile("[tTfFyYnN].*");
+      
         private final java.util.Scanner stdScanner = new java.util.Scanner(System.in);
+        private boolean shouldCallNextLineTwice = false;
+        
 
         /**
          * Prompts the user to enter a word.
@@ -126,7 +129,8 @@ public class MenuLooper implements Runnable {
          * @return The next word
          */
         public String next() {
-            return stdScanner.next();
+            // Only used to fix nextLine() blank input bug, not input validation
+            return properNextType("string", stdScanner::next);
         }
 
         /**
@@ -331,6 +335,11 @@ public class MenuLooper implements Runnable {
          * @return The next integer as a BigInteger
          */
         public String nextLine() {
+            if (shouldCallNextLineTwice) {
+              stdScanner.nextLine();
+              shouldCallNextLineTwice = false;
+            }
+          
             return stdScanner.nextLine();
         }
 
@@ -411,6 +420,7 @@ public class MenuLooper implements Runnable {
         }
 
         private <T> T properNextType(String typeName, Supplier<T> nextFunction) {
+            shouldCallNextLineTwice = true;
             T input;
             while (true) {
                 try {
