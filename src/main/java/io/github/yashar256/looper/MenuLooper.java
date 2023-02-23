@@ -78,7 +78,7 @@ public class MenuLooper implements Runnable {
         
         while (true) {
             int option = scanner.nextInt(menuText) - 1;
-            while (option < 1 || option > options.size()) {
+            while (option < 0 || option >= options.size()) {
                 System.out.println("Could not recognise that option. Please enter an option from the list above");
                 option = scanner.nextInt() - 1;
             }
@@ -428,6 +428,7 @@ public class MenuLooper implements Runnable {
                     break;
                 } catch (InputMismatchException e) {
                     System.err.printf("Please enter a valid %s and try again%n", typeName);
+                    stdScanner.nextLine();
                 }
             }
 
