@@ -6,7 +6,7 @@ You can add menu options to an MenuLooper instance which executes a function whe
 
 - Gets rid of bulky `try {...} catch` blocks around methods like scan.nextInt() and automatically prompts users to enter the correct type if a wrong type was entered by accident
 - Contains nextBoolean() which can recognise variations of true/false or yes/no
-- (No promises) but hopefully this can fix the next()/nextLine() bugginess at some point
+- Fixes next()/nextLine() bugginess
 ## Example
 
 ```
@@ -15,7 +15,7 @@ Select an option from the list bellow
 [2] - Sort the list
 [3] - Add an element to the list
 [4] - Remove an element from the list
-[5] - Quit the program
+[5] - Exit
 ```
 
 An interactive selection list such as the one above can be generated with the following code
@@ -37,7 +37,7 @@ menu.addOption("Remove an element from the list", scanner -> {
 
 menu.run();
 ```
-Notice that `[5] - Quit the program` is automatically added for you!
+Notice that `[5] - Exit` is automatically added for you!
 
 ## Instalation
 Currently this project is in development, so it may only be downloaded from its github repository. It is planned to be released onto maven for easy installation on repl.it in the future.
