@@ -38,7 +38,7 @@ import java.util.regex.Pattern;
  * Note that this class uses a wrapper for {@link Scanner}
  */
 public class MenuLooper implements Runnable {
-    private final Option quitOption = new Option("Quit the program", () -> System.exit(0));
+    private final Option quitOption = new Option("Exit", () -> {});
     private final List<Option> options = new ArrayList<>();
 
     /**
@@ -48,6 +48,9 @@ public class MenuLooper implements Runnable {
      * @param runnable A callback runnable function to be executed when the user selects the option, or `null` to not do anything on selection
      */
     public void addOption(String name, Runnable runnable) {
+        if (runnable == null) {
+          runnable = () -> {};
+        }
         options.add(new Option(name, runnable));
     }
 
@@ -82,8 +85,12 @@ public class MenuLooper implements Runnable {
                 System.out.println("Could not recognise that option. Please enter an option from the list above");
                 option = scanner.nextInt() - 1;
             }
-            
-            options.get(option).callOption(scanner);
+
+            if (option == options.size() - 1) {
+              return;
+            } else {
+              options.get(option).callOption(scanner);
+            }
         }
     }
 
