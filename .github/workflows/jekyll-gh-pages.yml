@@ -25,8 +25,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3.10.0
+      - name: Generate Javadocs
+        run: mvn javadoc:javadoc -DoutputDirectory=./_site/javadocs
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Build with Jekyll
@@ -36,7 +38,7 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-
+        
   # Deployment job
   deploy:
     environment:
