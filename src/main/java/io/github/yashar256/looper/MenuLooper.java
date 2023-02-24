@@ -123,7 +123,7 @@ public class MenuLooper implements Runnable {
         /**
          * Prompts the user to enter a word.
          * <b>This is not the same as {@link #nextLine} which enters the next complete line entered.</b>
-         * @param The prompt
+         * @param prompt The prompt
          * @return The next word
          */
         public String next(String prompt) {
