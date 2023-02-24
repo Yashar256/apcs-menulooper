@@ -104,7 +104,7 @@ public class MenuLooper implements Runnable {
      *   <li> Each method has a mirror which takes in a String which is automatically displayed to the user before input. For example, writing 
      *     <pre>
      *       int i = scanner.nextInt("What's your favourite number?");
-     *     </pre
+     *     </pre>
      *     is analogous to
      *    <pre>
      *      System.out.println("What's your favourite number?");
@@ -123,6 +123,7 @@ public class MenuLooper implements Runnable {
         /**
          * Prompts the user to enter a word.
          * <b>This is not the same as {@link #nextLine} which enters the next complete line entered.</b>
+         * @param The prompt
          * @return The next word
          */
         public String next(String prompt) {
