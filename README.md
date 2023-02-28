@@ -1,4 +1,6 @@
 # MenuLooper
+[![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://yashar256.github.io/apcs-menulooper/javadoc/)]
+
 Tired of spending a considerable portion of classtime writing code to loop through a menu? Tired of <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html"> Scanner </a> being annoying? MenuLooper allows you to write code to efficiently test and show off your classwork so you can spend more time programming novel features that don't require copy and pasting your last classworks code and tweaking it until it works.
 
 ## The basics
