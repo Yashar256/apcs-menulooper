@@ -1,5 +1,5 @@
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Deploy Github pages with JavaDocs
 
 on:
   # Runs on pushes targeting the default branch
@@ -29,6 +29,6 @@ jobs:
         uses: MathieuSoysal/Javadoc-publisher.yml@v2.4.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          javadoc-branch: javadoc
+          javadoc-branch: gh-pages
           java-version: "8"
-          target-folder: javadoc 
+          target-folder: javadocs
